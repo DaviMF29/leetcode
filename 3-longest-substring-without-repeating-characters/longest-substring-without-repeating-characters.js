@@ -9,7 +9,7 @@ var lengthOfLongestSubstring = function (s) {
 
     for (let i = 0; i < s.length; i++) {
         if (seen.has(s[i])) {
-            start = Math.max(seen.get(s[i]) + 1, start)
+            start = Math.max(seen.get(s[i]) + 1, start)  // posição da primeira ocorrência
         }
         seen.set(s[i], i);
         maxLen = Math.max(i - start + 1, maxLen);
