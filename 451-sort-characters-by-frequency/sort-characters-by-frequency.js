@@ -1,18 +1,13 @@
-/**
- * @param {string} s
- * @return {string}
- */
 var frequencySort = function(s) {
     var map = new Map();
-    var text = ""
+    var text = "";
     for (var i = 0; i < s.length; i++) {
-        var char = s[i];
-        if (!map.has(char)) {
-            map.set(char, [char]);
+        if (!map.has(s[i])) {
+            map.set(s[i], [s[i]]);
         } else {
-            var currentValue = map.get(char);
-            currentValue.push(char);
-            map.set(char, currentValue);
+            var currentValue = map.get(s[i]);
+            currentValue.push(s[i]);
+            map.set(s[i], currentValue);
         }
     }
 
@@ -21,8 +16,10 @@ var frequencySort = function(s) {
     entries.sort((a, b) => b[1].length - a[1].length);
     
     for (const [char, charsArray] of entries) {
-        text += charsArray.join('')
+        text += charsArray.join('');
     }
 
-    return text
+    return text;
 };
+
+frequencySort("aassd"); 
